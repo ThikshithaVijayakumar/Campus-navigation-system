@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MKCE Campus Maps</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg id="map" role="img" aria-label="Campus map"></svg>
+<svg id="plan" viewBox="0 0 800 520" role="img" aria-label="Floor plan"></svg>
+<div id="badge" class="badge">Campus map</div>
+<div id="views" class="views" role="group" aria-label="Map view: campus or floor"></div>
+<aside class="card">
+  <h1>MKCE Campus Maps</h1>
+  <div class="fields">
+    <div class="dots"><i class="a"></i><b></b><i class="b"></i></div>
+    <div class="inputs">
+      <input id="from" list="places" aria-label="Start location" placeholder="Choose starting point" autocomplete="off">
+      <input id="to" list="places" aria-label="Destination" placeholder="Choose destination" autocomplete="off">
+    </div>
+    <button id="swap" aria-label="Swap start and destination">&#8645;</button>
+  </div>
+  <datalist id="places"></datalist>
+  <div id="filters" class="chips" role="group" aria-label="Filter places by category"></div>
+  <label class="opt"><input type="checkbox" id="sf"> Step-free route (lifts only, no stairs)</label>
+  <div class="row"><button id="go" class="primary">Directions</button><button id="reset">Clear</button><button id="share">Share</button><button id="speak">Speak</button></div>
+  <div id="demos" class="chips"></div>
+  <section id="result" aria-live="polite"><p class="hint">Search a place or a room code like APJ019, or tap two points. Start is the Security Office. Try the quick routes below.</p></section>
+</aside>
+<div class="zoomctl"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">&minus;</button><button id="zfit" aria-label="Reset view">&#8962;</button></div>
+<div id="tip" class="tip" hidden></div>
+<script src="graphData.js"></script>
+<script src="indoorData.js"></script>
+<script src="dijkstra.js"></script>
+<script src="directions.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
